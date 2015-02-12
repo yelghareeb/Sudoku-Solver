@@ -9,7 +9,7 @@ public class Generator {
 		int game[][] = new int[9][9];
 		Scanner input;
 		try {
-			input = new Scanner (new FileReader ("Puzzles/puzzle_1.txt") );
+			input = new Scanner (new FileReader ("Puzzles/puzzle_2.txt") );
 			String s = input.next();
 			for (int i=0;i<9;i++) {
 				for (int j=0;j<9;j++) {
