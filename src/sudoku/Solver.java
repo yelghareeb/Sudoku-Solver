@@ -1,10 +1,19 @@
+/*
+ * Sudoku Solver using backtracking
+ * Author: Youssef ElGhareeb
+ * This solution was adapted from the algorihtm described by Peter Norvig
+ * Reference: http://norvig.com/sudoku.html
+ */
+
 package sudoku;
 
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map.Entry;
 
-public class Solver {
+public class Solver implements Runnable {
+	private int [][] solution;
+	private int [][] grid;
 	
 	private List<Integer>[][] parseGrid(int[][] grid) {
 		List <Integer> values [][] = new List [9][9];
@@ -177,7 +186,21 @@ public class Solver {
 		return null;
 	}
 	
-	public int [][] solve (int [][] grid) {
-		return search (parseGrid (grid));
+	public void solve () {
+		solution = search (parseGrid (grid));
+	}
+
+	public void setGrid (int[][] grid ) {
+		this.grid = grid;
+	}
+	
+	public int[][] getSolution () {
+		return solution;
+	}
+	
+	@Override
+	public void run() {
+		// TODO Auto-generated method stub
+		solve ();
 	}
 }
